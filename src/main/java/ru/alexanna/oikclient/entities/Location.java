@@ -1,22 +1,33 @@
 package ru.alexanna.oikclient.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 @Entity
 @Table(name = "locations")
 public class Location {
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     protected int id;
     protected String name;
+    @ToString.Exclude
+    @JsonBackReference
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "tech_object_id", nullable = false)
     protected TechObject techObject;
+    @JsonManagedReference
     @OneToMany(mappedBy = "location", cascade = CascadeType.PERSIST)
     protected Set<CheckPoint> checkPoints = new HashSet<>();
 }
