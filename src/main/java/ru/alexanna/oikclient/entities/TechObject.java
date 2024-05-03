@@ -1,6 +1,5 @@
 package ru.alexanna.oikclient.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +21,7 @@ public class TechObject {
     protected int id;
     protected String name;
     @ToString.Exclude
-    @JsonManagedReference
+//    @JsonManagedReference
     @OneToMany(mappedBy = "techObject", cascade = CascadeType.PERSIST)
     protected Set<Location> locations = new HashSet<>();
 }

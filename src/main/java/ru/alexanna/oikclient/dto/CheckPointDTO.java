@@ -5,8 +5,9 @@ import lombok.Value;
 import java.util.List;
 
 @Value
-public class TechObjectDTO {
+public class CheckPointDTO {
     int id;
     String name;
-    List<LocationDTO> locations;
+    int address;
+    List<SignalDTO> signals;
 }

@@ -1,6 +1,5 @@
 package ru.alexanna.oikclient.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +17,7 @@ public class Signal {
     protected String name;
     protected int number;
     protected int channel;
-    @JsonBackReference
+//    @JsonBackReference
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "check_point_id", nullable = false)

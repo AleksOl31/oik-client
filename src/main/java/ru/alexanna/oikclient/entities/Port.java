@@ -1,6 +1,5 @@
 package ru.alexanna.oikclient.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,7 +21,7 @@ public class Port {
     protected boolean parity;
     protected String ktms;
     protected String receivedData;
-    @JsonManagedReference
+//    @JsonManagedReference
     @OneToMany(mappedBy = "port", cascade = CascadeType.PERSIST)
     protected Set<CheckPoint> checkPoints = new HashSet<>();
 }

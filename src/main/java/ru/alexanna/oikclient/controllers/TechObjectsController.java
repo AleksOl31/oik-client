@@ -6,8 +6,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.alexanna.oikclient.entities.TechObject;
+import ru.alexanna.oikclient.dto.TechObjectDTO;
+import ru.alexanna.oikclient.dto.TechObjectMapper;
 import ru.alexanna.oikclient.services.TechObjectService;
+
+import java.util.stream.Collectors;
 
 
 @Slf4j
@@ -19,7 +22,8 @@ public class TechObjectsController {
     private final TechObjectService techObjectService;
 
     @GetMapping("/tech-objects")
-    public Iterable<TechObject> findAllTechObjects() {
-        return techObjectService.findAllTechObjects();
+    public Iterable<TechObjectDTO> findAllTechObjects() {
+        return techObjectService.findAllTechObjects().stream().map(TechObjectMapper::toDTO).collect(Collectors.toList());
+//        return techObjectService.findAllTechObjects();
     }
 }

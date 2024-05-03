@@ -1,9 +1,12 @@
 package ru.alexanna.oikclient.dto;
 
-import lombok.Data;
+import lombok.Value;
 
-@Data
+import java.util.List;
+
+@Value
 public class LocationDTO {
-    protected int id;
-    protected String name;
+    int id;
+    String name;
+    List<CheckPointDTO> checkPoints;
 }
