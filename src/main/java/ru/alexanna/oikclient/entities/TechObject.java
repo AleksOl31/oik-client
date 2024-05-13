@@ -10,7 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString()
+@ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
 @Table(name = "tech_objects")
@@ -20,7 +20,6 @@ public class TechObject {
     @Id
     protected int id;
     protected String name;
-    @ToString.Exclude
 //    @JsonManagedReference
     @OneToMany(mappedBy = "techObject", cascade = CascadeType.PERSIST)
     protected Set<Location> locations = new HashSet<>();

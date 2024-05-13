@@ -24,6 +24,5 @@ public class TechObjectsController {
     @GetMapping("/tech-objects")
     public Iterable<TechObjectDTO> findAllTechObjects() {
         return techObjectService.findAllTechObjects().stream().map(TechObjectMapper::toDTO).collect(Collectors.toList());
-//        return techObjectService.findAllTechObjects();
     }
 }
