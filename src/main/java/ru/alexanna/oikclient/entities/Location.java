@@ -25,7 +25,7 @@ public class Location {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "tech_object_id", nullable = false)
     protected TechObject techObject;
-//    @JsonManagedReference
+    //    @JsonManagedReference
     @OneToMany(mappedBy = "location", cascade = CascadeType.PERSIST)
     protected Set<CheckPoint> checkPoints = new HashSet<>();
 }

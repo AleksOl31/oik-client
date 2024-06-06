@@ -20,7 +20,7 @@ public class TechObject {
     @Id
     protected int id;
     protected String name;
-//    @JsonManagedReference
+    //    @JsonManagedReference
     @OneToMany(mappedBy = "techObject", cascade = CascadeType.PERSIST)
     protected Set<Location> locations = new HashSet<>();
 }

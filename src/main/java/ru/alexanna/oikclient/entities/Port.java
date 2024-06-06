@@ -21,7 +21,7 @@ public class Port {
     protected boolean parity;
     protected String ktms;
     protected String receivedData;
-//    @JsonManagedReference
+    //    @JsonManagedReference
     @OneToMany(mappedBy = "port", cascade = CascadeType.PERSIST)
     protected Set<CheckPoint> checkPoints = new HashSet<>();
 }

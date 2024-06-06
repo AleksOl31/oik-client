@@ -31,7 +31,7 @@ public class CheckPoint {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "port_id", nullable = false)
     protected Port port;
-//    @JsonManagedReference
+    //    @JsonManagedReference
     @OneToMany(mappedBy = "checkPoint", cascade = CascadeType.PERSIST)
     protected Set<Signal> signals = new HashSet<>();
 }
