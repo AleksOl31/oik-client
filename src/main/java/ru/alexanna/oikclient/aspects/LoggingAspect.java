@@ -19,7 +19,7 @@ public class LoggingAspect {
 
     @AfterReturning(value = "execution(Iterable ru.alexanna.oikclient.controllers.TechObjectsController.findAllTechObjects())", returning = "returnedValue")
     public void logAllTechObjects(List<TechObjectDTO> returnedValue) {
-        log.info("All technological objects have been requested. Technological objects returned in the amount of - {}", returnedValue.size());
+        log.info("{} technological objects were returned", returnedValue.size());
     }
 
     @Around("execution(Iterable ru.alexanna.oikclient.controllers.LocationController.findLocationsByTechObjectId(int))")
